@@ -1,0 +1,66 @@
+/* ChatBox.css */
+
+.chat-box {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px; 
+  width: 300px; 
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 300px; 
+}
+
+.messages {
+  flex-grow: 1; 
+  max-height: 100%; 
+ 
+}
+
+
+.answer-placeholder {
+  background-color: #e1e1e1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 8px 0; /* Adjust margin to provide spacing */
+}
+
+.message {
+  background-color: #e1e1e1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 8px 0; 
+  transition: transform 0.3s ease; 
+  font-size: 14px; 
+}
+
+.message:hover {
+  transform: scale(1.1); 
+}
+
+.input-form {
+  display: flex;
+  margin-top: 10px;
+  align-items: flex-end; 
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
