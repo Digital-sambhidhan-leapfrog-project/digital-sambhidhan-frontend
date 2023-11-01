@@ -12,19 +12,19 @@ function App() {
   };
 
   const handleNewChatClick = () => {
-    // Clear the input and answer fields
     const chatBox = document.getElementById('chat-box');
-    chatBox.querySelector('#Queries').value = ''; // Clear the input field
-    chatBox.querySelector('#answer-placeholder').textContent = 'Answer will appear here'; // Reset the answer field
+    chatBox.querySelector('#Queries').value = '';
+    chatBox.querySelector('#answer-placeholder').textContent = 'Answer will appear here';
   };
 
   return (
     <div className="App">
       <Nav />
       <ChatBox onNewMessage={addRecentMessage} />
-      <SideBar recentMessages={recentMessages} onNewChat={handleNewChatClick} />
+      <SideBar recentMessages={recentMessages} onNewChat={handleNewChatClick} onQuestionClick={addRecentMessage} />
     </div>
   );
 }
 
 export default App;
+

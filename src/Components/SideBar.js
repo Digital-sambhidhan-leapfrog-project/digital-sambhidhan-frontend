@@ -1,54 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from "react";
+import "./SideBar.css";
 
 const SideBar = (props) => {
   const { recentMessages, onNewChat } = props;
   const [showAll, setShowAll] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const parentContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (parentContainerRef.current) {
+      const parentContainerWidth = parentContainerRef.current.offsetWidth;
+      console.log("Parent Container Width: ", parentContainerWidth);
+    }
+  }, []);
 
   const sidebarStyles = {
-    position: 'fixed',
+    position: "fixed",
     left: 0,
-    top: 0,
-    width: '200px',
-    height: '100%',
-    backgroundColor: '#ccc',
+    top: "14vh", 
+    width: "15%",
+    height: "100%",
+    backgroundColor: "#0C0F50",
+    color: "white",
   };
 
   const newChatStyles = {
     button: {
-      backgroundColor: 'blue',
-      color: 'white',
-      padding: '10px 20px',
-      border: 'none',
-      cursor: 'pointer',
-      transition: 'background-color 0.3s',
+      backgroundColor: "blue",
+      color: "white",
+      padding: "2% 4%",
+      border: "none",
+      cursor: "pointer",
+      transition: "background-color 0.3s",
     },
     buttonHover: {
-      backgroundColor: 'darkblue',
+      backgroundColor: "darkblue",
     },
   };
 
   const containerStyles = {
-    height: '80%',
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "2%",
   };
 
   const headerStyles = {
-    marginLeft: '10px',
-    marginTop: '40px',
+    fontSize: "120%",
+    marginBottom: "2%",
   };
 
   const listStyles = {
-    overflowY: showAll ? 'auto' : 'hidden',
-    maxHeight: '100%',
+    overflowY: showAll ? "auto" : "hidden",
+    maxHeight: "100%",
   };
 
   return (
-    <div style={sidebarStyles}>
+    <div ref={parentContainerRef} style={sidebarStyles}>
       <div style={containerStyles}>
         <button
           style={{
             ...newChatStyles.button,
             ...(hovered ? newChatStyles.buttonHover : {}),
+            marginBottom: "4%",
           }}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
@@ -57,15 +72,16 @@ const SideBar = (props) => {
           + New Chat
         </button>
         <h1 style={headerStyles}>Recent</h1>
-        <ul style={listStyles}>
+        <ul style={listStyles} className="sidebar-list">
           {recentMessages.slice(0, showAll ? recentMessages.length : 5).map((message, index) => (
-            <li key={index}>{message}</li>
+            <li key={index} className="list-button">
+              <span className="list-icon"></span>
+              {message}
+            </li>
           ))}
         </ul>
         {!showAll && recentMessages.length > 5 && (
-          <button onClick={() => setShowAll(true)}>
-            Show More
-          </button>
+          <button onClick={() => setShowAll(true)}>Show More</button>
         )}
       </div>
     </div>

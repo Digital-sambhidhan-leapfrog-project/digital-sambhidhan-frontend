@@ -1,0 +1,51 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 15vh;
+  width: 20%;
+  height: 100%;
+  background-color: #0C0F50;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .sidebar {
+    width: 20%;
+  }
+}
+
+ul.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.sidebar-list li.list-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+ul.sidebar-list li.list-button::before {
+  content: '\2713';
+  display: inline-block;
+  width: 10%;
+  height: 10%;
+  background-color: blue;
+  color: white;
+  font-size: 2%;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 2%;
+  cursor: pointer;
+}
+
+ul.sidebar-list li.list-button:hover {
+  background-color: lightblue;
+}

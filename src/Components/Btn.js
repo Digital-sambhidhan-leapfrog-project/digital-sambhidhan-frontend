@@ -10,16 +10,17 @@ const Btn = (props) => {
 
 export default Btn;
 const btnStyle = {
-    btn:{
-        backgroundColor: '#0D0F37',
-        border: 'none',
-        outline: 'none',
-        color: 'white',
-        fontSize: '15px',
-        borderRadius: '5px',
-        display: 'flex',
-        justifyContent: 'center',
-        padding: '10px 15px',
-        alignItems: 'center',
-    }
-}
+  btn: {
+    backgroundColor: '#0D0F37',
+    border: 'none',
+    outline: 'none',
+    color: 'white',
+    fontSize: '0.8vw',
+    borderRadius: '5px',
+    display: 'flex',
+    justifyContent: 'center',
+    padding: '1.2% 2.5%',
+    margin: '2.5% 2%', // Increase margin to create more gap
+    alignItems: 'center',
+  },
+};

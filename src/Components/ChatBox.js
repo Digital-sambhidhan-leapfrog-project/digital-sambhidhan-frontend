@@ -1,43 +1,53 @@
-import React, { Component } from 'react';
-import './ChatBox.css';
+import React, { Component } from "react";
+import "./ChatBox.css";
+import Image4 from "./Image4.png"; // Import the image
 
 class ChatBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: '',
+      input: "",
       questions: [
-        'What are my rights?',
-        'What freedom do we get as citizens?',
-        'How much taxes does the law say we need to pay?',
+        "What are my rights?",
+        "What freedom do we get as citizens?",
+        "How much taxes does the law say we need to pay?",
       ],
-      answer: '', // Added state for the answer
+      answer: "",
     };
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
     const { input } = this.state;
-    if (input.trim() !== '') {
+    if (input.trim() !== "") {
       this.setState({
         answer: `Look over section I for "${input}"`,
       });
       this.props.onNewMessage(input);
     }
-  }
+  };
 
   handleQuestionClick = (question) => {
-    this.setState({ input: question, answer: '' });
-  }
+    this.setState({
+      input: question,
+      answer: "",
+      questions: [],
+    });
+  };
 
   render() {
     return (
       <div className="chat-box" id="chat-box">
-        <div className="messages">
-          {/* Display messages, both user-entered and received messages */}
+        <div className="image-container">
+          <img
+            src={Image4} // Use the imported image
+            alt="Image"
+          />
         </div>
         <div className="answer-placeholder" id="answer-placeholder">
-          {this.state.answer || 'Answer will appear here'}
+          <div className="answer-text">
+            {this.state.answer || "Answer will appear here"}
+          </div>
         </div>
         <div className="suggestions">
           {this.state.questions.map((question, index) => (
@@ -49,17 +59,18 @@ class ChatBox extends Component {
               {question}
             </button>
           ))}
+          <form onSubmit={this.handleSubmit} className="input-form">
+            <input
+              id="Queries"
+              type="text"
+              value={this.state.input}
+              onChange={(e) => this.setState({ input: e.target.value })}
+              placeholder="Enter your queries here"
+              autoComplete="off"
+            />
+            <button type="submit">Send</button>
+          </form>
         </div>
-        <form onSubmit={this.handleSubmit} className="input-form">
-          <input
-            id="Queries"
-            type="text"
-            value={this.state.input}
-            onChange={(e) => this.setState({ input: e.target.value })}
-            placeholder="Enter your queries here"
-          />
-          <button type="submit">Send</button>
-        </form>
       </div>
     );
   }
