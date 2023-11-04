@@ -19,9 +19,9 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
+      <Nav/>
       <ChatBox onNewMessage={addRecentMessage} />
-      <SideBar recentMessages={recentMessages} onNewChat={handleNewChatClick} onQuestionClick={addRecentMessage} />
+      {/* <SideBar recentMessages={recentMessages} onNewChat={handleNewChatClick} onQuestionClick={addRecentMessage} /> */}
     </div>
   );
 }

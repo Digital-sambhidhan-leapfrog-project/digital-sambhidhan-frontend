@@ -1,18 +1,19 @@
+*{
+  box-sizing: border-box;
+}
 /* Default styles for ChatBox */
 .chat-box {
-  border: 2px solid #fff;
-  border-radius: 1%;
+  /* border: 2px solid #0D0F37; */
+  /* border-radius: 1%; */
   padding: 2%;
-  margin: 0 auto;
-  background: #0D0F37;
-  box-shadow: 0 2% 5% rgba(0, 0, 0, 0.2);
+  background: #fff;
+  /* box-shadow: 0 2% 5% rgba(0, 0, 0, 0.2); */
   font-family: 'Arial', sans-serif;
-  color: #fff;
+  color: #0D0F37;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   min-height: 30vh;
-  position: relative;
+  /* position: relative; */
 }
 
 /* Messages container */
@@ -20,21 +21,22 @@
   flex-grow: 1;
   max-height: 50vh;
   overflow-y: auto;
-  background: #0D0F37;
+  background: #fff;
   border-radius: 1%;
   padding: 2%;
-  box-shadow: inset 0 2% 4% rgba(0, 0, 0, 0.1);
+  /* box-shadow: inset 0 2% 4% rgba(0, 0, 0, 0.1); */
 }
 
 /* Reduce the gap above the questions */
 .suggestions {
-  margin-top: 1%;
   max-height: 20vh;
-  overflow-y: auto;
-  background: #0D0F37;
-  border-radius: 1%;
-  padding: 1%;
-  box-shadow: 0 2% 4% rgba(0, 0, 0, 0.1);
+  /* overflow-y: auto; */
+  background: #fff;
+  /* border-radius: 1%; */
+  position: relative;
+  bottom: 0px;
+  padding: '10px';
+  /* box-shadow: 0 2% 4% rgba(0, 0, 0, 0.1); */
 }
 
 /* Make the image smaller with a fixed height in pixels */
@@ -50,27 +52,25 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background: #0D0F37;
-  border-top: 2px solid #fff;
-  border-radius: 1%;
+  background: #fff;
+  /* border-top: 2px solid #0D0F37; */
+  /* border-radius: 1%; */
+  margin:auto;
   padding: 2%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 80%;
   max-width: 100%;
-  padding-left: 20%;
-  box-shadow: 0 -2% 5% rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 -2% 5% rgba(0, 0, 0, 0.2); */
 }
 
 /* Reduce the gap between "Answer will appear here" and questions */
 .answer-placeholder {
-  background-color: #0D0F37;
-  border: 2px solid #fff;
-  border-radius: 1%;
+  background-color: #fff;
+  /* border: 2px solid #0D0F37; */
+  /* border-radius: 1%; */
   padding: 2%;
   height: auto;
-  width: 100%;
+  width: auto;
+  padding: 10px;
   font-size: 1.6vw;
   margin: 0;
 }
@@ -78,51 +78,97 @@
 input {
   flex: 1;
   padding: 2%;
-  border: 2px solid #fff;
-  border-radius: 1%;
+  /* border: 2px solid #0D0F37; */
+  /* border-radius: 1%; */
   outline: none;
   width: 100%;
   text-align: center;
-  background: #0D0F37;
-  color: #fff;
+  background: #fff;
+  color: #0D0F37;
 }
 
 input::placeholder {
-  background: #0D0F37;
-  color: #fff;
-  text-align: center;
+  background: #fff;
+  color: #0D0F37;
+  text-align: initial;
+  border: none;
+}
+
+input[type='text'] {
+  background: #fff;
+  color: #0D0F37;
+  text-align: initial;
+  border: 1.5px solid rgba(141, 141, 141, 0.78);
+  /* border-radius: 10px; */
+  box-shadow: 5px -4px 32px -18px rgba(0,0,0,0.78);
+  outline: none;
 }
 
 button {
-  background-color: #0D0F37;
-  color: #fff;
+  background-color: #fff;
+  color: #0D0F37;
   border: none;
-  border-radius: 1%;
+  /* border-radius: 1%; */
   padding: 2%;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color, border 0.2s;
   margin-right: 2%;
 }
 
 button:hover {
+  border: 1px solid #0056b3;
   background-color: #0056b3;
 }
 
 /* Question buttons */
 .question-button {
-  background-color: #0D0F37;
-  color: white;
-  border: 2px solid #fff;
+
+  background-color: #fff;
+  color: #0D0F37;
+  border: 1.5px solid #0D0F37;
   padding: 1%;
   margin: 1%;
   cursor: pointer;
   border-radius: 1%;
+  box-shadow: 5px -4px 32px -18px rgba(0,0,0,0.78);
   transition: transform 0.2s, box-shadow 0.3s;
 }
 
 .question-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 1vh rgba(255, 255, 255, 0.5);
+  /* transform: scale(1.1); */
+  background-color: #0D0F37;
+  color: #fff;
+}
+
+.Chat{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+}
+
+.chatBlob{
+  width: 100%;
+  position: relative;
+  left: 20%;
+  transform: translate(-50px);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* grid-template-columns: 1fr 1fr; */
+
+}
+
+.chatBlob img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  transform: scale(0.5);
+  border: 1px solid #0056b3;
 }
 
 /* Media Queries */
