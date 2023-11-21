@@ -1,9 +1,23 @@
 import React from 'react'
 
-const Blob = ({text}) => {
+const Blob = (props) => {
   return (
-    <div style={blob.blobstyle}>
-      {text}
+    <div style={{
+      blobstyle : {
+      minWidth: '300px',
+      maxWidth: '50%',
+      lineHeight: '1.5',
+      maxHeight: '50px',
+      backgroundColor: `{props.bgcolor}`,
+      borderRadius: '50px',
+      display: 'flex',
+      justifyContent: 'initial',
+      alignItems: 'center',
+      color: 'white',
+      padding: '10px',
+  },
+  }}>
+      {props.text}
     </div>
   )
 }
@@ -16,7 +30,7 @@ const blob = {
     maxWidth: '50%',
     lineHeight: '1.5',
     maxHeight: '50px',
-    backgroundColor: '#0D0F37',
+    backgroundColor: `{bgcolor}`,
     borderRadius: '50px',
     display: 'flex',
     justifyContent: 'initial',

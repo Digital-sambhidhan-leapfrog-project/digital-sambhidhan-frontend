@@ -1,5 +1,5 @@
 import React from 'react';
-import myLogo from './myLogo.png';
+// import myLogo from './myLogo.png';
 
 const Nav = () => {
   const handleHover = (event) => {

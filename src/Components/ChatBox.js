@@ -6,7 +6,7 @@ import answerLogo from "./myLogo.png";
 
 function ChatBox(props) {
   const [components, setComponents] = useState([]);
-  const [input, setInput] = useState("");
+  const [query, setQuery] = useState("");
   const [questions] = useState([
     "What are my rights?",
     "What freedom do we get as citizens?",
@@ -36,25 +36,55 @@ function ChatBox(props) {
         <div className="chatImage">
           <img src={item.isQuestion ? userLogo : answerLogo} alt="Image" />
         </div>
-        <div>{<Blob text={item.text} />}</div>
+        <div>{<Blob bgcolor = {item.isQuestion ? "#0D0F37" : "#000000"} text={item.text} />}</div>
       </div>
     ));
     setComponents(chatComponents);
   }, [chatItems]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    if (input.trim() !== "") {
-      addChatItem(input, true); 
-      setTimeout(() => {
-        addChatItem(`Look at section I for "${input}"`, false); 
-      }, 1000);
-      setInput(""); 
+    if (query.trim() !== "") {
+      addChatItem(query, true);
+      const token = localStorage.getItem('token');
+
+      try {
+        const response = await fetch('http://localhost:8000/chat', {
+          method: 'POST', // or 'GET' or 'PUT' or 'DELETE' depending on your API
+          headers: {
+            'Content-Type': 'application/json',
+            // 'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        // Additional headers for CORS if needed:
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        Authorization: `Bearer ${token}`,
+            // You may need to include additional headers, such as authentication tokens
+          },
+          body: JSON.stringify({query}),
+        });
+  
+        // Handle the response, e.g., check if the request was successful
+        if (response.ok) {
+          const reply = await response.json();
+        setTimeout(() => {
+          addChatItem(`${reply}`, false); 
+        }, 1000);
+      setQuery(""); 
+        } else {
+          console.error('Failed to sign up:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error during signup:', error);
+      }
+
+
     }
   };
 
   const handleQuestionClick = (question) => {
-    setInput(question);
+    setQuery(question);
     setAnswer("");
   };
 
@@ -78,8 +108,8 @@ function ChatBox(props) {
             <input
               id="Queries"
               type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
               placeholder="Enter your queries here"
               autoComplete="off"
             />
