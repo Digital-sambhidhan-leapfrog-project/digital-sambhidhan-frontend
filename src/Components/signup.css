@@ -1,0 +1,130 @@
+.inline {
+  display: inline-block;
+}
+
+#cancle {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: 3px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+#signup {
+  color: var(--text-heading, #000);
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  align-self: center;
+}
+#line {
+  background: var(--line-stroke-default, #d3d7d9);
+}
+#create {
+  color: var(--text-heading, #000);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: -0.99px;
+  font-size: 33px;
+  font-family: Plus Jakarta Sans;
+}
+#form {
+  width: 400px;
+  padding: 12px 20px;
+  margin: 8px 400px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-right: 20px;
+}
+#button {
+  display: inline-flex;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 32px;
+  background: linear-gradient(99deg, #363eff 8.18%, #c12a58 92.24%);
+  margin: 0;
+  position: absolute;
+}
+.lineContainer {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.line {
+  flex: 1;
+  border-top: 1px solid #000;
+}
+.or {
+  padding: 0 10px;
+}
+.login-container {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.facebook-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+.login-container-google {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.gicon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.google-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+.login-container-apple {
+  text-align: center;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.apple-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.apple-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
