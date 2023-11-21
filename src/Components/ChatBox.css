@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  /* overflow-x: hidden; */
 }
 
 /* Default styles for ChatBox */
@@ -119,18 +120,36 @@ button:hover {
   bottom: 0;
 }
 
+.chat_comp{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 60vh;
+  overflow-y: scroll;
+
+
+}
 /* Styles for chat bubbles */
 .chatBlob {
+  width: 90%;
+  /* border-bottom: 1px solid #0056b3; */
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; */
+  position: relative;
+  margin: 0px auto;
+ 
+}
+.chat_sec_comp{
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
   position: relative;
-  left: 20%;
-  transform: translate(-50px);
-  margin: 10px;
+  width: 80%;
+  margin: 0px auto;
 }
-
 .chatBlob img {
   width: 100px;
   height: 100px;
@@ -141,10 +160,11 @@ button:hover {
   border: 1px solid #0056b3;
 }
 
+
 /* Styles for questions */
-.chatBlob.question {
+.chatBlob.question > div{
   flex-direction: row-reverse;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
 }
 
 .chatBlob.question img {
@@ -156,9 +176,9 @@ button:hover {
 }
 
 /* Styles for answers */
-.chatBlob.answer {
+.chatBlob.answer > div {
   flex-direction: row;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
 }
 
 .chatBlob.answer img {

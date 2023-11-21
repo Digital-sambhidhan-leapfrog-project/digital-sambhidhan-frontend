@@ -33,10 +33,12 @@ function ChatBox(props) {
         className={`chatBlob ${item.isQuestion ? "question" : "answer"}`}
         key={index}
       >
+        <div className="chat_sec_comp">
         <div className="chatImage">
           <img src={item.isQuestion ? userLogo : answerLogo} alt="Image" />
         </div>
         <div>{<Blob bgcolor = {item.isQuestion ? "#0D0F37" : "#000000"} text={item.text} />}</div>
+      </div>
       </div>
     ));
     setComponents(chatComponents);
@@ -90,7 +92,9 @@ function ChatBox(props) {
 
   return (
     <div className="chat-box" id="chat-box">
+      <div className="chat_comp">
       {components}
+      </div>
       <div className="Chat">
         <div className="suggestions">
           {questions.map((question, index) => (
